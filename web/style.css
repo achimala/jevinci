@@ -158,53 +158,58 @@ main {
   display: none;
 }
 .composer {
-  width: min(704px, 100%);
-  padding: 12px 28px 14px;
+  width: min(616px, 100%, calc(100dvh - 174px));
+  padding: 22px 28px 18px;
   margin: 0 auto;
 }
 .prompt-bar {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  border: 1px solid #ffffffbb;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #fff, #faf9f7);
-  box-shadow:
-    -6px -6px 18px #ffffffdb,
-    7px 9px 20px #34304410,
-    1px 2px 4px #34304408;
-  padding: 17px 18px 17px 24px;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 15px 0 0;
+  border-top: 1px solid #51493925;
+  transition: border-color .2s;
 }
 .prompt-bar:focus-within {
-  border-color: #9c85c5;
+  border-color: #51493970;
 }
 textarea {
+  display: block;
   width: 100%;
-  resize: vertical;
-  min-height: 62px;
-  max-height: 140px;
+  resize: none;
+  min-height: 58px;
+  max-height: 112px;
+  padding: 0;
   border: 0;
+  border-radius: 0;
   background: transparent;
-  font-size: 21px;
-  line-height: 1.45;
+  color: #3e3b33;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
   outline: none;
 }
 textarea::placeholder {
-  color: #96909c;
+  color: #898477;
 }
 #generate {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #ded0ee;
-  color: #513568;
-  font-size: 27px;
-  padding: 0;
-  box-shadow:
-    -2px -2px 5px #fff9,
-    3px 4px 8px #5d41681a;
+  min-height: 32px;
+  padding: 3px 0 3px 10px;
+  color: #665f50;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  transition: color .2s;
 }
+#generate:hover:not(:disabled) { color: #24221d; }
+#generate svg { width: 18px; height: 18px; }
+#generate:disabled { cursor: progress; }
 #status {
   font-size: 13px;
   color: #a43f3f;
@@ -284,7 +289,8 @@ input {
     padding-top: 70px;
   }
   .composer {
-    padding: 12px 20px 14px;
+    width: min(600px, calc(100vw - 8px), calc(100dvh - 250px));
+    padding: 22px 20px 18px;
   }
   #carousel {
     --card: min(560px, calc(100vw - 48px), calc(100dvh - 290px));

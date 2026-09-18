@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jevinci — probability painting</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <button
+      id="toggle"
+      class="toggle"
+      aria-expanded="false"
+      aria-controls="sidebar"
+      aria-label="Toggle settings"
+    >
+      ☰
+    </button>
+    <aside id="sidebar" hidden>
+      <div class="sidebar-heading">
+        <h2>Studio</h2>
+        <button id="close" aria-label="Close settings">×</button>
+      </div>
+      <label for="apiKey">Jev API key</label>
+      <input
+        id="apiKey"
+        type="password"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Paste your API key"
+      />
+      <p class="hint">
+        Saved in this browser. Clear this field to forget it. Sent through
+        the local helper to Jev.
+      </p>
+      <label for="method">Representation</label>
+      <select id="method">
+        <option value="palette">16-color palette</option>
+        <option value="hsl">HSL</option>
+        <option value="rgb">Binary RGB</option>
+        <option value="silhouette">Silhouette</option>
+      </select>
+      <label for="size">Grid size</label
+      ><select id="size"></select>
+    </aside>
+    <main>
+      <section id="carousel" aria-label="Paintings">
+        <div id="track">
+          <div class="art-card active blank">
+            <div class="canvas-bottom"></div>
+          </div>
+        </div>
+      </section>
+      <nav id="navigation" aria-label="Image carousel" hidden>
+        <button id="previous" aria-label="Previous image">←</button
+        ><span id="position"></span
+        ><button id="next" aria-label="Next image">→</button>
+      </nav>
+      <div class="composer">
+        <form id="promptForm" class="prompt-bar">
+          <label class="sr-only" for="prompt">Prompt</label
+          ><textarea
+            id="prompt"
+            rows="2"
+            maxlength="2000"
+            placeholder="Describe something to paint…"
+            required
+          ></textarea
+          ><button id="generate" type="submit" aria-label="Generate painting">
+            ↑
+          </button>
+        </form>
+        <p id="status" role="status" aria-live="polite"></p>
+      </div>
+    </main>
+    <script type="module" src="./app.mjs"></script>
+  </body>
+</html>

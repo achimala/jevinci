@@ -1,4 +1,4 @@
-# Jevinci
+# jev-paint
 
 A small local app that turns Jev's pixel probability distributions into paintings.
 
